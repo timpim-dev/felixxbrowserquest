@@ -61,8 +61,13 @@ module.exports = {
         },
       },
       {
-        test: /\.[jt]s$/,
-        use: "ts-loader",
+       test: /\.[jt]s$/,
+       use: {
+          loader: "ts-loader",
+          options: {
+            transpileOnly: true,
+          },
+        },
         exclude: /node_modules/,
       },
       {
