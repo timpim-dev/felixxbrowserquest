@@ -221,6 +221,7 @@ class GameClient {
 
     this.connection = null;
     this.connection = io(url, {
+      transports: ['websocket'],
       reconnection: true,
       reconnectionDelay: 1000,
       reconnectionDelayMax: 3000,
