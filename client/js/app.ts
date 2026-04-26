@@ -107,8 +107,8 @@ class App {
   setGame(game) {
     this.game = game;
     this.isMobile = this.game.renderer.mobile;
-    this.isTablet = this.game.renderer.tablet;
-    this.isDesktop = !(this.isMobile || this.isTablet);
+    this.isTab = this.game.renderer.tab;
+    this.isDesktop = !(this.isMobile || this.isTab);
     this.supportsWorkers = !!window.Worker;
     this.ready = true;
   }
@@ -326,11 +326,7 @@ class App {
 
       let config = { host: "localhost", port: 8000 };
       if (process.env.NODE_ENV !== "development") {
-        config = { host: "", port: 8000 };
-
-        if (window.location.host.endsWith("bananobrowserquest.com")) {
-          config.host = window.location.host.replace("ba", "");
-        }
+        config = { host: "nanobrowserquest.felixx.dev", port: 443 };
       }
       this.game.setServerOptions(config.host, config.port);
 
